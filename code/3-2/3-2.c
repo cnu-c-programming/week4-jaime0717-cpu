@@ -1,17 +1,22 @@
 #include <stdio.h>
 
-void swap_endian(int *x) {
-   char* addr = (char)x;
-   char* addr2 = addr;
+void swap_endian(int *x)
+{
+    char *addr = (char *)x;
+    char *r;
 
-    for (int i = 0; i<4;i++) {
-        addr2=addr+3-i;
+    for (int i = 0; i < 4; i++)
+    {
+        *(r + 3 - i) = *((addr + i));
+        printf("%x\n", *(addr + i));
+        printf("%x\n", *(r + 3 - i));
     }
 
-    x=addr2;
+    x = (int *)r;
 }
 
-int main() {
+int main()
+{
     int x = 0x12345678;
 
     printf("%x\n", x);
