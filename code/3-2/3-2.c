@@ -8,11 +8,9 @@ void swap_endian(int *x)
     for (int i = 0; i < 4; i++)
     {
         *(r + 3 - i) = *((addr + i));
-        printf("%x\n", *(addr + i));
-        printf("%x\n", *(r + 3 - i));
     }
 
-    x = (int *)r;
+    *x = *(int *)r;
 }
 
 int main()
