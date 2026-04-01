@@ -4,7 +4,7 @@ void swap_endian(int *x)
 {
     char *addr = (char *)x;
     char *r;
-
+    
     for (int i = 0; i < 4; i++)
     {
         *(r + 3 - i) = *((addr + i));
