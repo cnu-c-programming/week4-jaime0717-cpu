@@ -2,12 +2,14 @@
 
 void swap_endian(int *x)
 {
+
+    int y = *x;
     char *addr = (char *)x;
-    char *r;
-    
+    char *r = (char*)&y;
+
     for (int i = 0; i < 4; i++)
     {
-        *(r + 3 - i) = *((addr + i));
+        *(r + 3 - i) = *((addr + i)); 
     }
 
     *x = *(int *)r;
